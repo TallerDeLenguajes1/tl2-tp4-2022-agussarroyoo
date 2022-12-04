@@ -1,0 +1,33 @@
+@model List<tl2_tp4_2022_agussarroyoo.Models.Cadete>
+@{
+    ViewData["Title"] = "Cadeteria";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Listado de Cadetes</h1>
+</div>
+<td><a class="btn btn-primary" asp-controller="Cadete" asp-action="Alta" >Registrar nuevo</a></td>
+
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Direccion</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">@item.ID</th>
+            <td>@item.Nombre</td>
+            <td>@item.Telefono</td>
+            <td>@item.Direccion</td>
+            <td><a class="btn btn-primary" asp-controller="Cadete" asp-action="Edit" asp-route-Id=@item.ID>Editar</a></td>
+            <td><a class="btn btn-danger" asp-controller="Cadete" asp-action="Baja" asp-route-Id=@item.ID>Eliminar</a></td>
+        </tr>
+    }
+  </tbody>
+</table>
